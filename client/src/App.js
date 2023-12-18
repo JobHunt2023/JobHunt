@@ -1,9 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/home";
+// import { Home } from "./pages/home";
 import { NavBar } from "./components/uiPrmitives/NavBar";
 import { Footer } from "./components/uiPrmitives/Footer";
+import NewsFeed from "./pages/NewsFeed";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<NewsFeed />} />
         </Routes>
         <Footer />
       </BrowserRouter>
