@@ -1,11 +1,11 @@
 import express from "express";
 import cors from 'cors';
-import router from './routes/homepageRoutes';
+import router from './routes/routers';
 import dotenv from 'dotenv';
 import connectToMongoDB from './config/connect';
 
 const app: express.Express = express();
-const port: number = parseInt(process.env.PORT || '8000', 10);
+const port: number = parseInt(process.env.PORT || '8080', 10);
 
 app.use(express.json());
 app.use(cors());
