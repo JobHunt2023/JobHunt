@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import UserModel from '../models/userModel';
+import {UserModel} from '../models/userModel';
 
 class UserController {
   async createUser(req: Request, res: Response): Promise<void> {
