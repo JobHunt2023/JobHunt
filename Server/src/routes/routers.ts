@@ -1,7 +1,7 @@
 import express from 'express';
 import UserController from '../controllers/UserController';
 import ConnectionController from '../controllers/ConnectionController';
-import PostController from '../controllers/PostController';
+// import PostController from '../controllers/PostController';
 import MessageController from '../controllers/MessageController';
 import JobController from '../controllers/JobController';
 
@@ -23,11 +23,11 @@ router.put('/connections/:connectionId', ConnectionController.updateConnection);
 router.delete('/connections/:connectionId', ConnectionController.deleteConnection);
 
 
-router.post('/posts', PostController.createPost);
-router.get('/posts', PostController.getAllPosts);
-router.get('/posts/:postId', PostController.getPost);
-router.put('/posts/:postId', PostController.updatePost);
-router.delete('/posts/:postId', PostController.deletePost);
+// router.post('/posts', PostController.createPost);
+// router.get('/posts', PostController.getAllPosts);
+// router.get('/posts/:postId', PostController.getPost);
+// router.put('/posts/:postId', PostController.updatePost);
+// router.delete('/posts/:postId', PostController.deletePost);
 
 
 router.post('/messages', MessageController.createMessage);

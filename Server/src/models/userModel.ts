@@ -9,7 +9,6 @@ interface IUser extends Document {
   summary: string;
   skills: string[];
   connections: mongoose.Types.ObjectId[];
- 
 }
 
 const userSchema: Schema = new Schema({
@@ -27,7 +26,6 @@ const userSchema: Schema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   }],
-  
 });
 
 const UserModel = mongoose.model<IUser>('User', userSchema);
