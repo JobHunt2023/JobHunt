@@ -1,33 +1,56 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-interface IUser extends Document {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  headline: string;
-  summary: string;
-  skills: string[];
-  connections: mongoose.Types.ObjectId[];
+interface User {
+    role: string;
+    firstName: string;
+    lastName: string;
+    address: string;
+    email: string;
+    password: string;
+    phoneNumber?: string | null;
+    imageName?: string | null;
+    isDeleted: boolean;
+    verificationCode: string;
+    UserImage: String, // Assuming UserImage is a string, adjust accordingly
 }
 
-const userSchema: Schema = new Schema({
-  firstName: String,
-  lastName: String,
-  email: {
-    type: String,
-    unique: true,
-  },
-  password: String,
-  headline: String,
-  summary: String,
-  skills: [String],
-  connections: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-  }],
+interface UserDocument extends User, Document { }
+
+const userSchema = new Schema<UserDocument>({
+    role: {
+        type: String,
+        required: true,
+        default: "user",
+    },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    phoneNumber: {
+        type: String,
+        default: null,
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false,
+    }
 });
 
-const UserModel = mongoose.model<IUser>('User', userSchema);
+const User = mongoose.model<UserDocument>("User", userSchema);
 
-export default UserModel;
+
+export default User;

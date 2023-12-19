@@ -1,12 +1,20 @@
 import express from 'express';
 import UserController from '../controllers/usersController';
 import ConnectionController from '../controllers/ConnectionController';
-// import PostController from '../controllers/PostController';
+import { PostController, CommentController, LikeController } from '../controllers/PostController';
+const postController = new PostController();
+const commentController = new CommentController();
+const likeController = new LikeController();
 import MessageController from '../controllers/MessageController';
 import JobController from '../controllers/JobController';
 
-
 const router = express.Router();
+
+// router.post('/users', UserController.createUser);
+// router.get('/users', UserController.getAllUsers);
+// router.get('/users/:userId', UserController.getUser);
+// router.put('/users/:userId', UserController.updateUser);
+// router.delete('/users/:userId', UserController.deleteUser);
 
 router.post("/registerUser", UserController.registerUser);
 router.post("/Login", UserController.loginUser);
@@ -18,23 +26,30 @@ router.get('/getUserId/:id', UserController.getUserId);
 router.put('/updateUserData/:id', UserController.updateUserData);
 router.put("/deleteUser/:id", UserController.deleteUser);
 
-// router.post('/users', UserController.createUser);
-// router.get('/users', UserController.getAllUsers);
-// router.get('/users/:userId', UserController.getUser);
-// router.put('/users/:userId', UserController.updateUser);
-// router.delete('/users/:userId', UserController.deleteUser);
-
 router.post('/connections', ConnectionController.createConnection);
 router.get('/connections', ConnectionController.getAllConnections);
 router.get('/connections/:connectionId', ConnectionController.getConnection);
 router.put('/connections/:connectionId', ConnectionController.updateConnection);
 router.delete('/connections/:connectionId', ConnectionController.deleteConnection);
 
-// router.post('/posts', PostController.createPost);
-// router.get('/posts', PostController.getAllPosts);
-// router.get('/posts/:postId', PostController.getPost);
-// router.put('/posts/:postId', PostController.updatePost);
-// router.delete('/posts/:postId', PostController.deletePost);
+//* Posts Routes
+router.post('/addPost', postController.createPost);
+router.get('/getAllPosts', postController.getAllPosts);
+router.get('/getPost', postController.getPostById);
+router.put('/updatePost', postController.updatePostById);
+router.put('/deletePost', postController.deletePostById);
+
+//* Comments Routes
+router.post('/addComment', commentController.createComment);
+router.get('/getAllComments', commentController.getAllComments);
+router.put('/updateComment', commentController.updateCommentById);
+router.put('/deleteComment', commentController.deleteCommentById);
+
+//* Likes Routes
+router.post('/addLike', likeController.addLike);
+router.put('/removeLike', likeController.removeLike);
+router.put('/updateLike', likeController.updateLike);
+router.get('/getAllLikes', likeController.getLikedPostsByUser)
 
 router.post('/messages', MessageController.createMessage);
 router.get('/messages', MessageController.getAllMessages);

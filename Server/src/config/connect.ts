@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-// const MONGO_URI = 'mongodb+srv://mohammedhassouna000:7SJlq4ijVghmasit@test.ovwjvzp.mongodb.net/';
-const MONGO_URI = 'mongodb+srv://mothanaalmajali91:359157@cluster0.34prt34.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = `${process.env.MONGO_URI}`;
 
 const connectToMongoDB = async () => {
     try {

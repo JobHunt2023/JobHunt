@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import path from "path";
-import UserModel from "../models/usersSchema";
+import UserModel from "../models/userModel";
 
 dotenv.config();
 
@@ -349,12 +349,12 @@ const updateUserData = async (req: Request, res: Response): Promise<void> => {
              res.status(400).json({ error: validate.error.details });
              return
         }
-        let imageName = null;
+        // let imageName = null;
 
-        if (req.file) {
-            // If a file is uploaded, set imageName to the filename
-            imageName = req.file.filename;
-        }
+        // if (req.file) {
+             // If a file is uploaded, set imageName to the filename
+        //     imageName = req.file.filename;
+        // }
         let hashedPassword;
         if (password) {
             hashedPassword = await bcrypt.hash(password, 10);
@@ -366,7 +366,7 @@ const updateUserData = async (req: Request, res: Response): Promise<void> => {
                 email,
                 password: hashedPassword,
                 phoneNumber,
-                imageName
+                // imageName
             }
         }, { new: true });
 
@@ -409,20 +409,12 @@ const deleteUser = async (req: Request, res: Response): Promise<void> => {
 
 export default {
     registerUser,
-
     loginUser,
-
     sendEmail,
-
     verificationCode,
-
     updatepassword,
-
     getUserData,
-
     getUserId,
-    
     updateUserData,
-
     deleteUser,
 };
