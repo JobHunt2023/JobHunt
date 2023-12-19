@@ -68,7 +68,7 @@ export const NavBar = () => {
           className="rounded text-gray-700 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2"
           href="#"
         >
-          FAQ
+          Messages
         </a>
       </li>
     </ul>
