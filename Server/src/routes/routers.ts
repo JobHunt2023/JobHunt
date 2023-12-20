@@ -36,6 +36,32 @@ router.put("/deleteUser/:id", UserController.deleteUser);
 
 
 
+// router.post('/users', UserController.createUser);
+// router.get('/users', UserController.getAllUsers);
+// router.get('/users/:userId', UserController.getUser);
+// router.put('/users/:userId', UserController.updateUser);
+// router.delete('/users/:userId', UserController.deleteUser);
+// router.post("/registerUser", UserController.registerUser);
+
+router.post("/Login", UserController.loginUser);
+
+router.post('/sendEmail', UserController.sendEmail);
+
+router.post('/verificationCode', UserController.verificationCode);
+
+router.put("/updatepassword", UserController.updatepassword);
+
+router.get("/getUserData", UserController.getUserData);
+
+router.get('/getUserId/:id', UserController.getUserId);
+
+router.put('/updateUserData/:id', UserController.updateUserData);
+
+router.put("/deleteUser/:id", UserController.deleteUser);
+
+
+
+
 
 
 router.post('/connections', ConnectionController.createConnection);
