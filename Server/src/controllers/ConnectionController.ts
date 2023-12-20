@@ -122,7 +122,30 @@ class UserController {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
+  async getPendingConnections(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = req.params.userId;
+
+      // Fetch all pending connections for the specified user
+      const connections: IConnection[] = await ConnectionModel.find({
+        $or: [
+          { user1: userId, status: 'pending' },
+          { user2: userId, status: 'pending' },
+        ],
+      });
+
+      res.json(connections);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
 }
+
+
+
+
+
 
 
 
