@@ -3,6 +3,7 @@ import { HeroSec } from '../components/homePage/HeroSec'
 import { Services } from '../components/homePage/Services'
 import { Companies } from '../components/homePage/Companies'
 import { HowItWorks } from '../components/homePage/HowItWorks'
+import Connections from '../components/profilepage/Connections'
 
 export const Home = () => {
   return (
@@ -15,6 +16,7 @@ export const Home = () => {
     <HowItWorks />
     
     <Companies />
+    <Connections />
     </>
   )
 }

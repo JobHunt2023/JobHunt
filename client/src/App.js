@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { NavBar } from "./components/uiPrmitives/NavBar";
 import { Footer } from "./components/uiPrmitives/Footer";
 import { AboutUs } from "./pages/AboutUs";
+import Connections from "./components/profilepage/Connections";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/connections" element={<Connections />} />
         </Routes>
         <Footer />
       </BrowserRouter>
