@@ -3,6 +3,10 @@ import mongoose, { Schema, Document } from 'mongoose';
 interface IJob extends Document {
   title: string;
   company: string;
+  
+ 
+
+=======
   workplaceType: string,
   jobLocation: string
   description: string;
@@ -15,6 +19,7 @@ const jobSchema: Schema = new Schema({
   company: String,
   description: String,
   requirements: [String],
+
   jobLocation: String,
   workplaceType: String,
   owner: {
