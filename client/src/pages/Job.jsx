@@ -34,14 +34,15 @@ function Job() {
       .then((response) => {
         // Handle the success response here
         if (response.status === 201) {
-            Swal.fire({
-              icon: 'success',
-              title: 'Event Created Successfully!',
-              text: 'Your event has been created successfully.',
-              timer: 3000,
-              iconColor: "#FE7A00",
-              confirmButtonColor:"#FE7A00"
-            });}
+            // Swal.fire({
+            //   icon: 'success',
+            //   title: 'Event Created Successfully!',
+            //   text: 'Your event has been created successfully.',
+            //   timer: 3000,
+            //   iconColor: "#FE7A00",
+            //   confirmButtonColor:"#FE7A00"
+            // });
+          }
         
       })
       .catch((error) => {
@@ -49,10 +50,9 @@ function Job() {
       });
   };
   return (
-    <div>
+    <div className="pt-24 ">
       <>
 
-      <Search/>
         <link
           href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
           rel="stylesheet"
@@ -60,9 +60,12 @@ function Job() {
         <div className="flex flex-col items-center justify-center min-h-screen ">
           {/* dark theme */}
           <div className="container  m-4">
+            
             <div className="max-w-3xl w-full mx-auto grid gap-4 grid-cols-1">
               {/* alert */}
-
+              <div className="flex flex-row mb-16">
+      <Search/>
+      </div>
               <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
                 {" "}
                 <div className="flex flex-col justify-center p-4  border-gray-800 shadow-md hover:shodow-lg rounded-2xl">

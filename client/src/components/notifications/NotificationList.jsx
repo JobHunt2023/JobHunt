@@ -6,7 +6,7 @@ import { AcceptedConnectionRequest } from "./AcceptedConnectionRequest";
 export const NotificationList = () => {
   return (
     <>
-      <div class="absolute  max-w-sm mx-auto mt-1 shadow-md bg-white  rounded-[1rem] mb-16 ">
+      <div class="absolute  max-w-sm mx-auto mt-1 shadow-md bg-nav-bg-color  rounded-[1rem] mb-16 ">
         <NewMessageList />
         <ConnectRequestList />
         <AcceptedConnectionRequest />

@@ -5,7 +5,7 @@ export const Services = () => {
     <>
       <div class="container flex flex-col items-center justify-center my-32 ">
         <div class="grid  grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <div class="shadow-md shadow-[#3B564D20] w-fit flex flex-col items-center gap-3 px-8 py-10 bg-white rounded-3xl shadow-main">
+          <div class="shadow-md shadow-dark-color/20 w-fit flex flex-col items-center gap-3 px-8 py-10 bg-bg-white rounded-3xl shadow-main">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -20,16 +20,16 @@ export const Services = () => {
                 />
               </svg>
             </span>
-            <p class="text-2xl font-extrabold text-dark-grey-900">Email</p>
-            <p class="text-base leading-7 text-dark-grey-600">Contact us at</p>
-            <a
+            <p class="text-2xl font-extrabold text-dark-color">Email</p>
+            <p class="text-base leading-7 text-dark-color">Contact us at</p>
+            {/* <a
               class="text-lg font-bold text-purple-blue-500"
               href="mailto: hello@loopple.com"
             >
               hello@loopple.com
-            </a>
+            </a> */}
           </div>
-          <div class="shadow-md shadow-[#3B564D20] w-fit  flex flex-col items-center gap-3 px-8 py-10 bg-white rounded-3xl shadow-main">
+          <div class="shadow-md shadow-dark-color/20 w-fit  flex flex-col items-center gap-3 px-8 py-10 bg-bg-white rounded-3xl shadow-main">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,18 +44,18 @@ export const Services = () => {
                 />
               </svg>
             </span>
-            <p class="text-2xl font-extrabold text-dark-grey-900">Phone</p>
-            <p class="text-base leading-7 text-dark-grey-600">
+            <p class="text-2xl font-extrabold text-dark-color">Phone</p>
+            <p class="text-base leading-7 text-dark-color">
               Reach out to us by phone
             </p>
-            <a
+            {/* <a
               class="text-lg font-bold text-purple-blue-500"
               href="tel:+516-486-5135"
             >
               +516-486-5135
-            </a>
+            </a> */}
           </div>
-          <div class="shadow-md shadow-[#3B564D20] w-fit flex flex-col items-center gap-3 px-8 py-10 bg-white rounded-3xl shadow-main">
+          <div class="shadow-md shadow-dark-color/20 w-fit flex flex-col items-center gap-3 px-8 py-10 bg-bg-white rounded-3xl shadow-main">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,17 +70,17 @@ export const Services = () => {
                 />
               </svg>
             </span>
-            <p class="text-2xl font-extrabold text-dark-grey-900">Location</p>
-            <p class="text-base leading-7 text-dark-grey-600">
+            <p class="text-2xl font-extrabold text-dark-color">Location</p>
+            <p class="text-base leading-7 text-dark-color">
               Find us at our office
             </p>
-            <a
+            {/* <a
               class="text-lg font-bold text-purple-blue-500"
               target="_blank"
               href="https://goo.gl/maps/QcWzYETAh4FS3KTD7"
             >
               10924 Urna Convallis
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

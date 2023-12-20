@@ -3,19 +3,19 @@ import React from "react";
 export const ConnectRequestList = () => {
   return (
     <>
-      <div class=" p-3 flex items-center justify-between border-t border-[#B9C5B1] cursor-pointer hover:bg-[#B9C5B125]">
+      <div class=" p-3 flex items-center justify-between border-t border-light-color cursor-pointer hover:bg-light-color/25">
         <div class="flex items-center">
           {/* <img
             class="rounded-full h-10 w-10"
             src=""
           /> */}
-          <div className="h-10 w-10 rounded-full bg-[#3B564D]"></div>
+          <div className="h-10 w-10 rounded-full bg-dark-color"></div>
 
           <div class="ml-2 flex flex-col">
-            <div class="leading-snug text-sm text-[#3B564D] font-bold">
+            <div class="leading-snug text-sm text-dark-color font-bold">
               john doe
             </div>
-            <div class="leading-snug text-xs text-[#3B564D90]">
+            <div class="leading-snug text-xs text-dark-color/90">
               Requestedd to connect
             </div>
           </div>

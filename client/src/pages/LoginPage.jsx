@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import { Cookies } from 'react-cookie';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const cookies = new Cookies();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,7 +29,7 @@ const Login = () => {
         console.log("Login successful:", data);
 
         // Save the token in cookies
-        Cookies.set("token", data.token);
+        cookies.set("userToken", data.token);
         navigate("/");
         // Redirect or perform any other action upon successful login
       } else {
@@ -41,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <section className="h-screen">
+    <section className="h-screen mx-44 pt-24">
       <div className="h-full">
         {/* Left column container with background */}
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-around">
@@ -58,7 +59,7 @@ const Login = () => {
             <form onSubmit={handleLogin}>
               {/* Sign in section */}
               <div className="flex flex-row items-center justify-center lg:justify-center">
-                <p className="mb-0 mr-4 text-3xl text-[#3B564D] font-bold">
+                <p className="mb-0 mr-4 text-3xl text-dark-color font-bold">
                   Sign in to your account
                 </p>
                 {/* Facebook button */}
@@ -107,7 +108,7 @@ const Login = () => {
                 </button> */}
               </div>
               {/* Separator */}
-              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-light-color after:mt-0.5 after:flex-1 after:border-t after:border-light-color">
                 {/* <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
                   Or
                 </p> */}
@@ -117,7 +118,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -126,17 +127,17 @@ const Login = () => {
               {/* Password input */}
               <input
                 type="password"
-                className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <div className="mb-6 flex items-center justify-between text-[#3B564D]">
+              <div className="mb-6 flex items-center justify-between text-dark-color">
                 {/* Remember me checkbox */}
                 <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
                   <input
-                    className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem]  rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 "
+                    className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem]  rounded-[0.25rem] border-[0.125rem] border-solid border-light-color "
                     type="checkbox"
                     value=""
                     id="rememberMe"
@@ -154,10 +155,10 @@ const Login = () => {
               </div>
 
               {/* Login button */}
-              <div className="text-center lg:text-left text-[#3B564D]">
+              <div className="text-center lg:text-left text-dark-color">
                 <button
                   type="submit"
-                  className="inline-block rounded bg-[#B9C5B1] hover:bg-[#a6b49c] px-7 py-2 text-sm font-medium uppercase text-white transition duration-150 ease-in-out"
+                  className="inline-block rounded bg-dark-btn-color hover:bg-dark-btn-color50 px-7 py-2 text-sm font-medium uppercase text-dark-btn-txt-color transition duration-150 ease-in-out"
                 >
                   Login
                 </button>
@@ -167,7 +168,7 @@ const Login = () => {
                   Don't have an account?{" "}
                   <Link
                     to="/RegisterPage"
-                    className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                    className="underline text-dark-color transition duration-150 ease-in-out hover:text-light-color focus:text-dark-color active:text-dark-color"
                   >
                     Register
                   </Link>
