@@ -1,14 +1,43 @@
 import React, { useState } from "react";
-import LoginPic from '../assets/clips/LoginPic.png'
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = () => {
-    console.log("Username:", username);
-    console.log("Password:", password);
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/Login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Login successful:", data);
+
+        // Save the token in cookies
+        Cookies.set("token", data.token);
+        navigate("/");
+        // Redirect or perform any other action upon successful login
+      } else {
+        console.error("Login failed:", data);
+        // Handle error, display error message, etc.
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
 
   return (
@@ -26,10 +55,12 @@ const Login = () => {
 
           {/* Right column container */}
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-            <form>
+            <form onSubmit={handleLogin}>
               {/* Sign in section */}
               <div className="flex flex-row items-center justify-center lg:justify-center">
-                <p className="mb-0 mr-4 text-3xl text-[#3B564D] font-bold">Sign in to your account</p>
+                <p className="mb-0 mr-4 text-3xl text-[#3B564D] font-bold">
+                  Sign in to your account
+                </p>
                 {/* Facebook button */}
                 {/* <button
                   type="button"
@@ -85,8 +116,11 @@ const Login = () => {
               {/* Email input */}
               <input
                 type="email"
+                name="email"
                 className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
 
               {/* Password input */}
@@ -94,6 +128,8 @@ const Login = () => {
                 type="password"
                 className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
 
               <div className="mb-6 flex items-center justify-between text-[#3B564D]">
@@ -103,11 +139,11 @@ const Login = () => {
                     className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem]  rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 "
                     type="checkbox"
                     value=""
-                    id="exampleCheck2"
+                    id="rememberMe"
                   />
                   <label
                     className="inline-block pl-[0.15rem] hover:cursor-pointer "
-                    htmlFor="exampleCheck2"
+                    htmlFor="rememberMe"
                   >
                     Remember me
                   </label>
@@ -120,9 +156,9 @@ const Login = () => {
               {/* Login button */}
               <div className="text-center lg:text-left text-[#3B564D]">
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-block rounded bg-[#B9C5B1] hover:bg-[#a6b49c] px-7 py-2 text-sm font-medium uppercase text-white transition duration-150 ease-in-out"
-                  >
+                >
                   Login
                 </button>
 

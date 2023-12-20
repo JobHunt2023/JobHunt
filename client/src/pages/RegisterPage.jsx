@@ -5,14 +5,46 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-  const handleRegister = () => {
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
     if (password === confirmPassword) {
-      console.log("Email:", email);
-      console.log("Password:", password);
-      console.log("Confirmed Password:", confirmPassword);
+      try {
+        const response = await fetch("http://localhost:8080/registerUser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+            confirm_password: confirmPassword,
+            phoneNumber,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          console.log("Registration successful:", data);
+          // Redirect or perform any other action upon successful registration
+        } else {
+          console.error("Registration failed:", data);
+          // Handle error, display error message, etc.
+        }
+      } catch (error) {
+        console.error("Error during registration:", error);
+      }
     } else {
-      console.log("Passwords do not match");
+      // Set state to indicate password mismatch
+      setPasswordsMatch(false);
     }
   };
 
@@ -26,7 +58,9 @@ const Register = () => {
             <form>
               {/* Sign up section */}
               <div className="flex flex-row items-center justify-center lg:justify-center">
-                <p className="mb-0 mr-4 text-3xl text-[#3B564D] font-bold">Create an account</p>
+                <p className="mb-0 mr-4 text-3xl text-[#3B564D] font-bold">
+                  Create an account
+                </p>
               </div>
 
               {/* Separator */}
@@ -35,30 +69,62 @@ const Register = () => {
                   Or
                 </p> */}
               </div>
-
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  name="FirstName"
+                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  placeholder="First Name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  name="LastName"
+                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  placeholder="Last Name"
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
               {/* Email input */}
               <input
                 type="email"
+                name="email"
                 className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
                 placeholder="Email address"
                 onChange={(e) => setEmail(e.target.value)}
               />
 
               {/* Password input */}
+              <div className="flex gap-2">
+                <input
+                  type="password"
+                  name="password"
+                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                {/* Confirm Password input */}
+                <input
+                  type="password"
+                  name="password"
+                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  placeholder="Confirm Password"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </div>
+              {/* Phone number input */}
               <input
-                type="password"
+                type="text"
+                name="phoneNumber"
                 className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Phone Number"
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
 
-              {/* Confirm Password input */}
-              <input
-                type="password"
-                className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
-                placeholder="Confirm Password"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
+              {!passwordsMatch && (
+                <p className="text-red-500 text-sm">Passwords do not match</p>
+              )}
 
               {/* Register button */}
               <div className="text-center lg:text-left text-[#3B564D]">
