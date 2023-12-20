@@ -9,5 +9,6 @@ router.put('/connections/:connectionId/accept', userController.acceptConnection)
 router.put('/connections/:connectionId/reject', userController.rejectConnection);
 router.get('/:userId/acceptedConnections', userController.getAcceptedConnections);
 router.get('/:userId/rejectedConnections', userController.getRejectedConnections);
+router.get('/:userId/pendingConnections', userController.getPendingConnections);
 
 export default router;
