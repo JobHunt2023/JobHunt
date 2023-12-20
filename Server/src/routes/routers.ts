@@ -1,5 +1,6 @@
 import express from 'express';
 import UserController from '../controllers/usersController';
+
 import ConnectionController from '../controllers/ConnectionController';
 import PostController from '../controllers/PostController';
 import MessageController from '../controllers/MessageController';
@@ -32,6 +33,9 @@ router.put("/deleteUser/:id", UserController.deleteUser);
 // router.get('/users/:userId', UserController.getUser);
 // router.put('/users/:userId', UserController.updateUser);
 // router.delete('/users/:userId', UserController.deleteUser);
+
+
+
 
 
 router.post('/connections', ConnectionController.createConnection);
