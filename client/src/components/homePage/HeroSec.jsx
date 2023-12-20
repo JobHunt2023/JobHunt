@@ -1,5 +1,6 @@
 import React from "react";
-import bg from "../../assets/clips/bg.png"
+import bg from "../../assets/clips/bg.png";
+import { Link } from "react-router-dom";
 
 export const HeroSec = () => {
   return (
@@ -27,10 +28,11 @@ export const HeroSec = () => {
                   class="text-[#fff] hover:text-[#3B564D] p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:bg-[#fff] bg-[#3B564D] hover:shadow-lg hover:shadow-[#3B564D50] dark:hover:border-cyan-300/30"
                 >
                   <div class="flex justify-center space-x-4">
-                    
-                    <span class="w-24 text-center font-medium md:block dark:text-white">
-                      SIGN UP
-                    </span>
+                    <Link to="/RegisterPage">
+                      <span class="w-24 text-center font-medium md:block dark:text-white">
+                        SIGN UP
+                      </span>
+                    </Link>
                   </div>
                 </a>
               </div>
@@ -76,7 +78,7 @@ export const HeroSec = () => {
                   class="absolute scale-75 md:scale-110 inset-0 m-auto w-full h-full md:w-96 md:h-96 rounded-full rotate-45 bg-gradient-to-r from-[#15986a] to-[#afec87] blur-3xl"
                 ></div>
                 <img
-                //   src="https://tailus.io/sources/blocks/tech-startup/preview/images/globalization-cuate.svg"
+                  //   src="https://tailus.io/sources/blocks/tech-startup/preview/images/globalization-cuate.svg"
                   src={bg}
                   class="relative w-full"
                   alt="wath illustration"
