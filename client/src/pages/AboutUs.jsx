@@ -3,14 +3,14 @@ import React from 'react'
 export const AboutUs = () => {
   return (
     <>
-        <section class="flex items-center bg-stone-50 xl:h-screen font-poppins dark:bg-gray-800 ">
+        <section class="flex items-center bg-stone-50 xl:h-screen font-poppins dark:bg-[#3B564D] ">
         <div class="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
             <div class="flex flex-wrap items-center ">
                 <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
                     <div class="lg:max-w-md">
-                        <span class="text-xl font-semibold text-blue-600 uppercase dark:text-blue-500">
+                        <span class="text-xl font-semibold text-[#3B564D] uppercase dark:text-[#3B564D98]">
                             About Us</span>
-                        <h2 class="mt-4 mb-6 text-2xl font-bold dark:text-gray-300">
+                        <h2 class="mt-4 mb-6 text-2xl text-[#3B564D] font-bold dark:text-gray-300">
                             We are the large business expert in Europe and Asia</h2>
                         <p class="mb-10 text-gray-600 dark:text-gray-400 ">
                             Lorem ipsum dor amet Lorem ipsum dor amet is a dummy text .Lorem ipsum dor amet isopinus
@@ -20,7 +20,7 @@ export const AboutUs = () => {
                 <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
                     <div class="flex mb-4">
                         <span
-                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-6 bg-blue-500 rounded dark:bg-blue-500 dark:text-gray-100 text-gray-50">
+                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-6 bg-[#3B564D98] rounded dark:bg-[#3B564D98] dark:text-gray-100 text-gray-50">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="w-5 h-5 bi bi-file-earmark-code" viewBox="0 0 16 16">
                                 <path
@@ -30,7 +30,7 @@ export const AboutUs = () => {
                             </svg>
                         </span>
                         <div>
-                            <h2 class="mb-4 text-xl font-bold leading-tight dark:text-gray-300 md:text-2xl">
+                            <h2 class="mb-4 text-xl text-[#3B564D] font-bold leading-tight dark:text-gray-300 md:text-2xl">
                                 Design
                             </h2>
                             <p class="text-base leading-loose text-gray-500 dark:text-gray-400">
@@ -41,7 +41,7 @@ export const AboutUs = () => {
                     </div>
                     <div class="flex mb-4">
                         <span
-                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-6 bg-blue-500 rounded dark:bg-blue-500 dark:text-gray-100 text-gray-50">
+                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-6 bg-[#3B564D98] rounded dark:bg-[#3B564D98] dark:text-gray-100 text-gray-50">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="w-5 h-5 bi bi-file-text" viewBox="0 0 16 16">
                                 <path
@@ -51,7 +51,7 @@ export const AboutUs = () => {
                             </svg>
                         </span>
                         <div>
-                            <h2 class="mb-4 text-xl font-bold leading-tight dark:text-gray-300 md:text-2xl">
+                            <h2 class="mb-4 text-xl text-[#3B564D] font-bold leading-tight dark:text-gray-300 md:text-2xl">
                                 Strategy
                             </h2>
                             <p class="text-base leading-loose text-gray-500 dark:text-gray-400">
@@ -62,7 +62,7 @@ export const AboutUs = () => {
                     </div>
                     <div class="flex mb-4">
                         <span
-                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-6 bg-blue-500 rounded dark:bg-blue-500 dark:text-gray-100 text-gray-50">
+                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-6 bg-[#3B564D98] rounded dark:bg-[#3B564D98] dark:text-gray-100 text-gray-50">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="w-5 h-5 bi bi-bank2" viewBox="0 0 16 16">
                                 <path
@@ -71,7 +71,7 @@ export const AboutUs = () => {
                             </svg>
                         </span>
                         <div>
-                            <h2 class="mb-4 text-xl font-bold leading-tight dark:text-gray-300 md:text-2xl">
+                            <h2 class="mb-4 text-xl text-[#3B564D] font-bold leading-tight dark:text-gray-300 md:text-2xl">
                                 Develop
                             </h2>
                             <p class="text-base leading-loose text-gray-500 dark:text-gray-400">

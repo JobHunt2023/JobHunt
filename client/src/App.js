@@ -7,6 +7,7 @@ import { Footer } from "./components/uiPrmitives/Footer";
 import  LoginPage  from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
 import { AboutUs } from "./pages/AboutUs";
+import Connections from "./components/profilepage/Connections";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/RegisterPage" element={<Register />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/connections" element={<Connections />} />
         </Routes>
         <Footer />
       </BrowserRouter>
