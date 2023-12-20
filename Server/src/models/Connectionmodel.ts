@@ -1,10 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-interface IConnection extends Document {
+export interface IConnection extends Document {
   user1: mongoose.Types.ObjectId;
   user2: mongoose.Types.ObjectId;
   status: 'pending' | 'accepted' | 'rejected';
-  
 }
 
 const connectionSchema: Schema = new Schema({
@@ -23,9 +22,6 @@ const connectionSchema: Schema = new Schema({
     enum: ['pending', 'accepted', 'rejected'],
     default: 'pending',
   },
-  
 });
 
-const ConnectionModel = mongoose.model<IConnection>('Connection', connectionSchema);
-
-export default ConnectionModel;
+export default mongoose.model<IConnection>('Connection', connectionSchema);

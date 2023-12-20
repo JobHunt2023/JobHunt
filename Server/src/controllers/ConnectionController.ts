@@ -1,73 +1,174 @@
 import { Request, Response } from 'express';
-import ConnectionModel from '../models/Connectionmodel';
+import ConnectionModel, { IConnection } from '../models/Connectionmodel';
 
-class ConnectionController {
-  public async createConnection(req: Request, res: Response): Promise<void> {
+class UserController {
+  async getAllConnections(req: Request, res: Response): Promise<void> {
     try {
-      const connection = new ConnectionModel(req.body);
-      const savedConnection = await connection.save();
-      res.json(savedConnection);
-    } catch (error) {
-      console.error('Error creating connection:', error);
-      res.status(500).json({ error: 'Failed to create connection.' });
-    }
-  }
-
-  public async getAllConnections(req: Request, res: Response): Promise<void> {
-    try {
-      const connections = await ConnectionModel.find();
+      const userId = req.params.userId;
+      const connections: IConnection[] = await ConnectionModel.find({
+        $or: [{ user1: userId }, { user2: userId }],
+      });
       res.json(connections);
     } catch (error) {
-      console.error('Error fetching connections:', error);
-      res.status(500).json({ error: 'Failed to fetch connections.' });
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
-  public async getConnection(req: Request, res: Response): Promise<void> {
+  async createConnection(req: Request, res: Response): Promise<void> {
     try {
-      const connection = await ConnectionModel.findById(req.params.connectionId);
-      if (!connection) {
-        res.status(404).json({ error: 'Connection not found.' });
+      const { user1, user2 } = req.body;
+
+      if (!user1 || !user2) {
+        res.status(400).json({ error: 'Both user1 and user2 are required' });
         return;
       }
+
+      const newConnection: IConnection = await ConnectionModel.create({
+        user1,
+        user2,
+        status: 'pending', 
+      });
+
+      res.status(201).json(newConnection);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+
+
+
+  async acceptConnection(req: Request, res: Response): Promise<void> {
+    try {
+      const connectionId = req.params.connectionId;
+
+      // Find the connection by ID
+      const connection: IConnection | null = await ConnectionModel.findById(connectionId);
+
+      if (!connection) {
+        res.status(404).json({ error: 'Connection not found' });
+        return;
+      }
+
+      // Update the connection status to 'accepted'
+      connection.status = 'accepted';
+      await connection.save();
+
       res.json(connection);
     } catch (error) {
-      console.error('Error fetching connection:', error);
-      res.status(500).json({ error: 'Failed to fetch connection.' });
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
-  public async updateConnection(req: Request, res: Response): Promise<void> {
+
+  async rejectConnection(req: Request, res: Response): Promise<void> {
     try {
-      const updatedConnection = await ConnectionModel.findByIdAndUpdate(
-        req.params.connectionId,
-        req.body,
-        { new: true, runValidators: true }
-      );
-      if (!updatedConnection) {
-        res.status(404).json({ error: 'Connection not found.' });
+      const connectionId = req.params.connectionId;
+
+      // Find the connection by ID
+      const connection: IConnection | null = await ConnectionModel.findById(connectionId);
+
+      if (!connection) {
+        res.status(404).json({ error: 'Connection not found' });
         return;
       }
-      res.json(updatedConnection);
+
+      // Update the connection status to 'rejected'
+      connection.status = 'rejected';
+      await connection.save();
+
+      res.json(connection);
     } catch (error) {
-      console.error('Error updating connection:', error);
-      res.status(500).json({ error: 'Failed to update connection.' });
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+  async getAcceptedConnections(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = req.params.userId;
+
+      // Fetch all accepted connections for the specified user
+      const connections: IConnection[] = await ConnectionModel.find({
+        $or: [
+          { user1: userId, status: 'accepted' },
+          { user2: userId, status: 'accepted' },
+        ],
+      });
+
+      res.json(connections);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
-  public async deleteConnection(req: Request, res: Response): Promise<void> {
+  async getRejectedConnections(req: Request, res: Response): Promise<void> {
     try {
-      const deletedConnection = await ConnectionModel.findByIdAndDelete(req.params.connectionId);
-      if (!deletedConnection) {
-        res.status(404).json({ error: 'Connection not found.' });
-        return;
-      }
-      res.json(deletedConnection);
+      const userId = req.params.userId;
+
+      // Fetch all rejected connections for the specified user
+      const connections: IConnection[] = await ConnectionModel.find({
+        $or: [
+          { user1: userId, status: 'rejected' },
+          { user2: userId, status: 'rejected' },
+        ],
+      });
+
+      res.json(connections);
     } catch (error) {
-      console.error('Error deleting connection:', error);
-      res.status(500).json({ error: 'Failed to delete connection.' });
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+  async getPendingConnections(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = req.params.userId;
+
+      // Fetch all pending connections for the specified user
+      const connections: IConnection[] = await ConnectionModel.find({
+        $or: [
+          { user1: userId, status: 'pending' },
+          { user2: userId, status: 'pending' },
+        ],
+      });
+
+      res.json(connections);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 }
 
-export default new ConnectionController();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+export default new UserController();
