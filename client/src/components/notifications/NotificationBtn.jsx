@@ -21,7 +21,7 @@ export const NotificationBtn = () => {
     </div>
     
     {isNotificationListOpen &&
-     <div className="absolute bottom-0 -top-0 z-50 max-w-sm mx-auto mt-1 shadow-md bg-white  rounded-[1rem] mb-16 ">
+     <div className="absolute bottom-0 -top-0 z-50 max-w-sm mx-auto mt-1 shadow-md bg-nav-bg-color  rounded-[1rem] mb-16 ">
      <NewMessageList />
      <ConnectRequestList />
      <AcceptedConnectionRequest />

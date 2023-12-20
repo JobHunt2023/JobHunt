@@ -11,7 +11,7 @@ function Connections({ title = "osamaRaedAlnobani ",}) {
 
 
   return (
-    <div className="flex justify-center  ">
+    <div className="flex justify-center pt-24 ">
       <div className="p-4 w-full bg-gray-50 rounded-lg border shadow-md sm:p-8 m-4 ">
           <div className="max-w-2xl mx-auto px-4">
              <div className="items-start justify-between sm:flex ">

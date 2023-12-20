@@ -2,35 +2,51 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 import Job from "./pages/Job";
 
 import { Home } from "./pages/Home";
 import { NavBar } from "./components/uiPrmitives/NavBar";
 import { Footer } from "./components/uiPrmitives/Footer";
-import  LoginPage  from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
 import { AboutUs } from "./pages/AboutUs";
 import Connections from "./components/profilepage/Connections";
+import { Cookies } from 'react-cookie';
+import axios from 'axios';
+import { UseUser, UserProvider } from "./hooks/UserContext";
+import { ProfilePageOne } from "./pages/ProfilePageOne";
+import { GroupsAndCommunities } from "./pages/GroupsAndCommunities";
+
+
+const cookies = new Cookies();
+
+axios.defaults.headers.common['Authorization'] = `Bearer ${cookies.get('token')}`;
 
 function App() {
+  // const { user } = UseUser();
+
+
   return (
     <>
-      <BrowserRouter>
-        {/* <NavBar /> */}
-        <Routes>
+      {/* <UserProvider user={user}> */}
+      <UserProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/job" element={<Job />} />
 
-          <Route path="/job" element={<Job />} />
-          
-
-          <Route path="/" element={<Home />} />
-          <Route path="/LoginPage" element={<LoginPage />} />
-          <Route path="/RegisterPage" element={<Register />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/connections" element={<Connections />} />
-        </Routes>
-        {/* <Footer /> */}
-      </BrowserRouter>
+            <Route path="/" element={<Home />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
+            <Route path="/RegisterPage" element={<Register />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            {/* <Route path="/contactus" element={<ContactUs />} /> */}
+            <Route path="/profilepage" element={<ProfilePageOne /> } />
+            <Route path="/connections" element={<Connections />} />
+            <Route path="/groups" element={<GroupsAndCommunities />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </UserProvider>
     </>
   );
 }
