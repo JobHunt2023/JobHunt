@@ -16,11 +16,7 @@ router.put('/users/:userId', UserController.updateUser);
 router.delete('/users/:userId', UserController.deleteUser);
 
 
-router.post('/connections', ConnectionController.createConnection);
-router.get('/connections', ConnectionController.getAllConnections);
-router.get('/connections/:connectionId', ConnectionController.getConnection);
-router.put('/connections/:connectionId', ConnectionController.updateConnection);
-router.delete('/connections/:connectionId', ConnectionController.deleteConnection);
+
 
 
 router.post('/posts', PostController.createPost);
