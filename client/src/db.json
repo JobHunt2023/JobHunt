@@ -1,0 +1,90 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "username": "user123",
+        "date": "2023-12-18",
+        "content": "This is the first post content.",
+        "image": "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+        "likes": 25,
+        "comments": [
+          {
+            "id": 1,
+            "username": "commenter1",
+            "comment": "Nice post!"
+          },
+          {
+            "id": 2,
+            "username": "commenter2",
+            "comment": "Great content!"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "username": "user456",
+        "date": "2023-12-17",
+        "content": "Second post here!",
+        "image": "/images/post2.jpg",
+        "likes": 30,
+        "comments": [
+          {
+            "id": 1,
+            "username": "commenter3",
+            "comment": "Awesome!"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "username": "user789",
+        "date": "2023-12-16",
+        "content": "Another post.",
+        "image": "/images/post3.jpg",
+        "likes": 15,
+        "comments": []
+      },
+      {
+        "id": 4,
+        "username": "user101",
+        "date": "2023-12-15",
+        "content": "Fourth post content.",
+        "image": "/images/post4.jpg",
+        "likes": 40,
+        "comments": [
+          {
+            "id": 1,
+            "username": "commenter4",
+            "comment": "Nice one!"
+          },
+          {
+            "id": 2,
+            "username": "commenter5",
+            "comment": "Keep it up!"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "username": "user202",
+        "date": "2023-12-14",
+        "content": "Fifth post here!",
+        "image": null,
+        "likes": 20,
+        "comments": [
+          {
+            "id": 1,
+            "username": "commenter6",
+            "comment": "Great content!"
+          },
+          {
+            "id": 2,
+            "username": "commenter7",
+            "comment": "Awesome!"
+          }
+        ]
+      }
+  
+    ]
+  }
+  
