@@ -43,7 +43,6 @@ class UserController {
     try {
       const connectionId = req.params.connectionId;
 
-      // Find the connection by ID
       const connection: IConnection | null = await ConnectionModel.findById(connectionId);
 
       if (!connection) {
@@ -51,7 +50,6 @@ class UserController {
         return;
       }
 
-      // Update the connection status to 'accepted'
       connection.status = 'accepted';
       await connection.save();
 
@@ -67,7 +65,6 @@ class UserController {
     try {
       const connectionId = req.params.connectionId;
 
-      // Find the connection by ID
       const connection: IConnection | null = await ConnectionModel.findById(connectionId);
 
       if (!connection) {
@@ -75,7 +72,6 @@ class UserController {
         return;
       }
 
-      // Update the connection status to 'rejected'
       connection.status = 'rejected';
       await connection.save();
 
@@ -89,13 +85,15 @@ class UserController {
     try {
       const userId = req.params.userId;
 
-      // Fetch all accepted connections for the specified user
       const connections: IConnection[] = await ConnectionModel.find({
         $or: [
           { user1: userId, status: 'accepted' },
           { user2: userId, status: 'accepted' },
         ],
-      });
+      })
+        .populate('user1', 'firstName lastName') 
+        .populate('user2', 'firstName lastName')
+        .exec();
 
       res.json(connections);
     } catch (error) {
@@ -103,6 +101,7 @@ class UserController {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
+
 
   async getRejectedConnections(req: Request, res: Response): Promise<void> {
     try {
@@ -122,17 +121,21 @@ class UserController {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
+
+
   async getPendingConnections(req: Request, res: Response): Promise<void> {
     try {
       const userId = req.params.userId;
 
-      // Fetch all pending connections for the specified user
       const connections: IConnection[] = await ConnectionModel.find({
         $or: [
           { user1: userId, status: 'pending' },
           { user2: userId, status: 'pending' },
         ],
-      });
+      })
+        .populate('user1', 'firstName lastName') 
+        .populate('user2', 'firstName lastName')
+        .exec();
 
       res.json(connections);
     } catch (error) {
@@ -141,8 +144,6 @@ class UserController {
     }
   }
 }
-
-
 
 
 

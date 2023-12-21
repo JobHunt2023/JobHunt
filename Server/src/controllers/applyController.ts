@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import ApplyModel from "../models/applyModel";
 import JobModel from "../models/Jobmodel";
-import UserModel from "../models/userModel";
+import UserModel from "../models/usersSchema";
 
 class applyController {
   public async createApplication(req: Request, res: Response): Promise<void> {
