@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Box from './Box';
 
-const SideBarGroup = () => {
+const MyBox = () => {
   const [user, setUser] = useState({
     name: 'Guest',
   });
@@ -36,12 +36,12 @@ const SideBarGroup = () => {
   }, []); // The empty dependency array ensures that the effect runs once when the component mounts
 
   return (
-    <div className="flex items-center justify-center gap-10 mt-16 ">
+    <div className="flex justify-center gap-10 ">
       {/* Left Section (User Profile, Recent Groups, Groups, Events) */}
-      <div className="flex flex-col w-[90%]">
+      <div className="flex flex-col w-fit">
         {/* User Profile Section */}
-        <div className="mb-8 w-[20rem]">
-          <div className="bg-bg-white shadow-xl rounded-[1rem] overflow-hidden">
+        <div className="mb-8">
+          <div className="overflow-hidden bg-white rounded-lg shadow-xl">
             <div className="h-32 overflow-hidden">
               <img
                 className="object-cover w-full h-full"
@@ -49,28 +49,26 @@ const SideBarGroup = () => {
                 alt="Mountain"
               />
             </div>
-            <div className="mx-auto w-24 h-24 ml-15 relative -mt-8 border-4 border-bg-white rounded-full overflow-hidden">
+            <div className="relative w-16 h-16 mx-auto -mt-16 overflow-hidden border-4 border-white rounded-full ml-15">
               <img
-                className="object-cover object-center h-24"
+                className="object-cover object-center h-16"
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
                 alt="Woman looking front"
               />
             </div>
-            <div className="text-center p-4">
-              <h2 className="font-semibold text-dark-color">{user.name}</h2>
+            <div className="mt-2 text-center">
+              <h2 className="font-semibold">{user.name}</h2>
             </div>
           </div>
         </div>
 
-       
-        <div className='bg-bg-white shadow-xl rounded-[1rem] w-[20rem] p-12'>
-           {/* Recent Groups Section */}
-        <div className="mb-8 w-full ">
-          <h2 className="text-dark-color text-xl font-semibold mb-2">Recent Groups:</h2>
+        {/* Recent Groups Section */}
+        <div className="w-full mb-8">
+          <h2 className="mb-2 text-xl font-semibold">Recent Groups:</h2>
           <ul>
             {recentGroups.map((group) => (
               <li key={group.id} className="mb-1">
-                <a href="#" onClick={() => handleLinkClick(group.id)} className="text-dark-color/90 hover:underline">
+                <a href="#" onClick={() => handleLinkClick(group.id)} className="text-blue-500 hover:underline">
                   {group.name}
                 </a>
               </li>
@@ -79,21 +77,21 @@ const SideBarGroup = () => {
         </div>
 
         {/* Groups Section */}
-        <div className="mb-8 w-full ">
-          <h2 className="text-dark-color text-xl font-semibold mb-2 ">Groups:</h2>
+        <div className="w-full mb-8 ">
+          <h2 className="mb-2 text-xl font-semibold ">Groups:</h2>
           <ul>
             <li>
-              <a href="#" id="javascript-group-link" onClick={() => handleLinkClick('javascript-group-id')} className="text-dark-color/90 hover:underlin">
+              <a href="#" id="javascript-group-link" onClick={() => handleLinkClick('javascript-group-id')} className="text-blue-500 hover:underlin">
                 JavaScript Programming Jordan
               </a>
             </li>
             <li>
-              <a href="#" id="react-group-link" onClick={() => handleLinkClick('react-group-id')} className="text-dark-color/90 hover:underlin">
+              <a href="#" id="react-group-link" onClick={() => handleLinkClick('react-group-id')} className="text-blue-500 hover:underlin">
                 React Group
               </a>
             </li>
             <li>
-              <a href="#" id="tailwind-group-link" onClick={() => handleLinkClick('tailwind-group-id')} className="text-dark-color/90 hover:underlin">
+              <a href="#" id="tailwind-group-link" onClick={() => handleLinkClick('tailwind-group-id')} className="text-blue-500 hover:underlin">
                 Tailwind Group
               </a>
             </li>
@@ -101,14 +99,14 @@ const SideBarGroup = () => {
         </div>
 
         {/* Events Section */}
-        <div className="mb-8 w-full">
-          <h2 className="text-dark-color text-xl font-semibold mb-2 mt-4">Events:</h2>
-          <a href="http://localhost:3008/events" className="text-dark-color/90 hover:underline">
+        <div className="w-full mb-8">
+          <h2 className="mt-4 mb-2 text-xl font-semibold">Events:</h2>
+          <a href="http://localhost:3008/events" className="text-blue-500 hover:underline">
             View Events
           </a>
         </div>
       </div>
-      </div>
+
       {/* Right Section (Box) */}
       {/* <div className="w-[80%]" mb-32 mr-64> */}
       {/* Box Section */}
@@ -118,4 +116,4 @@ const SideBarGroup = () => {
   );
 };
 
-export default SideBarGroup;
+export default MyBox;

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import R1 from '../../assets/clips/R1.jpg'
-
-
-
 const ProfileC1 = () => {
   const [data, setData] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -30,11 +27,11 @@ const ProfileC1 = () => {
   return (
     <div className=' '>
       {/* first section */}
-      <div className="container mx-auto  md:w-[900px]   bg-gray-100 rounded-lg">
+      <div className="container mx-auto  w-3/4   bg-gray-100 rounded-lg">
 
         <div className="grid grid-cols-1 ">
           <div className='bg-blue-100 h-40 mt-4 rounded-t-lg'>
-            <div className="relative  px-4 mb-10 md:w-1/2 lg:mb-0">
+            <div className="relative  px-4 mb-10 w-3/4 lg:mb-0">
               <img src={R1} className="relative z-40 object-cover w-24 md:h-24 rounded-full mt-24" /></div>
           </div>
           {data.map((user) => (
@@ -48,7 +45,7 @@ const ProfileC1 = () => {
           ))}
 
 
-          <div className='flex flex-raw mb-2 bg-white rounded-b-lg'>
+          <div className='flex flex-raw mb-2 bg-white rounded-b-lg w-3/4'>
             <div>
               {/* Dropdown menu */}
               <button
@@ -93,8 +90,8 @@ const ProfileC1 = () => {
       {/* //first section */}
 
       {/* second section */}
-      <div className='container mx-auto  md:w-[900px] mt-4 shadow-lg  rounded-lg bg-white'>
-        <p className='p-4 font-bold text-2xl'>About</p>
+      <div className='container mx-auto text-dark-color  w-3/4 mt-4 shadow-lg  rounded-[1rem] bg-bg-white'>
+        <p className='p-4 font-semibold text-2xl'>About</p>
         {data.map((user) => (
           <div key={user.id} className="bg-white p-4  flex flex-col gap-2 rounded-b-lg">
             <p className=' ml-2' > {user.about}</p>

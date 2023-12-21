@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import JobForm from "../components/jobpage/JobForm";
 
 function Job() {
   const [products, setProducts] = useState([]);
   const [formData, setFormData] = useState({
     name_event: "",
   });
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     axios
@@ -34,25 +36,31 @@ function Job() {
       .then((response) => {
         // Handle the success response here
         if (response.status === 201) {
-            // Swal.fire({
-            //   icon: 'success',
-            //   title: 'Event Created Successfully!',
-            //   text: 'Your event has been created successfully.',
-            //   timer: 3000,
-            //   iconColor: "#FE7A00",
-            //   confirmButtonColor:"#FE7A00"
-            // });
-          }
-        
+          // Swal.fire({
+          //   icon: 'success',
+          //   title: 'Event Created Successfully!',
+          //   text: 'Your event has been created successfully.',
+          //   timer: 3000,
+          //   iconColor: "#FE7A00",
+          //   confirmButtonColor:"#FE7A00"
+          // });
+        }
       })
       .catch((error) => {
         console.error("An error occurred while sending the message:", error);
       });
   };
+  const openForm = () => {
+    setShowForm(true);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+  };
+
   return (
     <div className="pt-24 ">
       <>
-
         <link
           href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
           rel="stylesheet"
@@ -60,15 +68,14 @@ function Job() {
         <div className="flex flex-col items-center justify-center min-h-screen ">
           {/* dark theme */}
           <div className="container  m-4">
-            
-            <div className="max-w-3xl w-full mx-auto grid gap-4 grid-cols-1">
+            <div className=" w-3/4 mx-auto grid gap-4 grid-cols-1">
               {/* alert */}
-              <div className="flex flex-row mb-16">
-      <Search/>
-      </div>
+              <div className="flex flex-row mb-4 ">
+                <Search />
+              </div>
               <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
                 {" "}
-                <div className="flex flex-col justify-center p-4  border-light-color shadow-md hover:shodow-lg rounded-2xl">
+                <div className="bg-bg-white flex flex-col justify-center p-4  border-light-color shadow-md hover:shodow-lg rounded-2xl">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <div className="flex flex-col">
@@ -80,7 +87,7 @@ function Job() {
                         </p>
                       </div>
                     </div>
-                    <a className="flex-no-shrink text-xs  font-medium tracking-wider  text-dark-color hover:text-dark-color/85 transition ease-in duration-300">
+                    <button onClick={openForm} className="flex-no-shrink text-xs  font-medium tracking-wider  text-dark-color hover:text-dark-color/50 transition ease-in duration-300">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -108,21 +115,21 @@ function Job() {
                           clipRule="evenodd"
                         />
                       </svg> */}
-                    </a>
+                    </button>
                   </div>
                 </div>
-                <div className="flex flex-col p-4 shadow-md hover:shodow-lg rounded-2xl">
+                <div className="flex flex-col p-4 bg-bg-white shadow-md hover:shodow-lg rounded-2xl">
                   <div className="flex">
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/6588/6588143.png"
                       alt="Just a flower"
-                      className=" w-16  object-fit  h-16 rounded-2xl"
+                      className=" w-12  object-fit  h-12 rounded-2xl"
                     />
-                    <div className="flex flex-col justify-center w-full px-2 py-1">
+                    <div className="flex flex-col justify-center  w-full px-2 py-1">
                       <div className="flex justify-between items-center ">
                         <div className="flex flex-col">
                           <label
-                            className="block mb-2 text-sm font-bold text-black dark:text-black "
+                            className="block mb-2 text-sm font-bold text-dark-color dark:text-black "
                             htmlFor="Direction"
                           >
                             Upload CV
@@ -144,13 +151,13 @@ function Job() {
                           />{" "}
                         </div>
 
-                        <div class="flex  items-center gap-x-2 justify-center">
+                        <div class="flex  items-center gap-x-3 p-4 justify-center">
                           <button
                             class="text-gray-500 transition-colors  duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none"
                             // onClick={handleModalEditOpen}
                           >
                             <svg
-                              class="text-orange-500 w-5 h-5"
+                              class="text-dark-btn-color w-5 h-5"
                               xmlns="http://www.w3.org/2000/svg"
                               width="24"
                               height="24"
@@ -172,8 +179,8 @@ function Job() {
                             // onClick={() => handleSoftDelete(product.id)}
                           >
                             <svg
-                                                    onClick={handleSubmit}        class="text-orange-500 w-5 h-5"
-
+                              onClick={handleSubmit}
+                              class="text-dark-btn-color w-5 h-5"
                               xmlns="http://www.w3.org/2000/svg"
                               width="24"
                               height="24"
@@ -212,12 +219,12 @@ function Job() {
                         <div className="flex items-center justify-between sm:mt-2">
                           <div className="flex items-center">
                             <div className="flex flex-col">
-                              <div className="w-full flex-none text-lg text-black font-bold leading-none">
+                              <div className="w-full flex-none text-lg text-dark-color font-bold leading-none">
                                 {product.title}
                               </div>
-                              <div className="flex-auto text-gray-500 my-1">
+                              <div className="flex-auto text-dark-color my-1">
                                 <span className="mr-3 "> {product.author}</span>
-                                <span className="mr-3 border-r border-gray-500  max-h-0" />
+                                <span className="mr-3 border-r border-dark-color  max-h-0" />
                                 <span>Cochin, IND</span>
                               </div>
                             </div>
@@ -359,7 +366,7 @@ function Job() {
 
               <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
                 {/*confirm modal*/}
-                <div className="flex flex-col p-4 relative items-center justify-center  border   rounded-2xl">
+                <div className="bg-bg-white flex flex-col p-4 relative items-center justify-center  border   rounded-2xl">
                   <div className="">
                     <div className="text-center p-5 flex-auto justify-center">
                       <svg
@@ -381,7 +388,7 @@ function Job() {
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
-                        className="w-16 h-16 flex items-center text-gray-600 mx-auto"
+                        className="w-16 h-16 flex items-center text-dark-color mx-auto"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -393,10 +400,10 @@ function Job() {
                         />{" "}
                         <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
                       </svg>
-                      <h2 className="text-xl font-bold py-4 text-gray-600">
+                      <h2 className="text-xl font-bold py-4 text-dark-color">
                         Job seeker guidance
                       </h2>
-                      <p className="text-lg text-gray-400 px-8">
+                      <p className="text-lg text-dark-color/75 px-8">
                         Explore our curated guide of expert-led courses, such as
                         how to improve your resume and grow your network, to
                         help you land your next opportunity.
@@ -407,23 +414,23 @@ function Job() {
                 {/*elements*/}
                 <div className="flex flex-col space-y-4">
                   {/* elements 1 */}
-                  <div className="flex flex-col p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
+                  <div className="flex flex-col p-4 bg-bg-white  border-dark-color shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center mr-auto">
                         <div className="inline-flex w-12 h-12">
                           <img
                             src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
                             alt="aji"
-                            className=" relative w-12 h-12 object-cover rounded-2xl"
+                            className=" relative w-12 h-12 object-cover rounded-full"
                           />
                           <span className="animate-ping absolute w-12 h-12 inline-flex border-2 rounded-2xl border-green-400 opacity-75" />
                           <span />
                         </div>
                         <div className="flex flex-col ml-3">
-                          <div className="font-medium leading-none text-gray-100">
+                          <div className="font-medium leading-none text-dark-color">
                             Aji
                           </div>
-                          <p className="text-sm text-gray-500 leading-none mt-1">
+                          <p className="text-sm text-dark-color/50 leading-none mt-1">
                             UI/UX Designer
                           </p>
                         </div>
@@ -431,70 +438,70 @@ function Job() {
                     </div>
                   </div>
                   {/*elements 2*/}
-                  <div className="flex flex-col p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
+                  <div className="flex flex-col p-4 bg-bg-white border-dark-color shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center mr-auto">
                         <div className="inline-flex w-12 h-12">
                           <img
                             src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
                             alt="aji"
-                            className=" relative p-1 w-12 h-12 object-cover rounded-2xl"
+                            className=" relative w-12 h-12 object-cover rounded-full"
                           />
-                          <span className="absolute w-12 h-12 inline-flex border-2 rounded-2xl border-green-400 opacity-75" />
+                          <span className="absolute w-12 h-12 inline-flex border-2 rounded-full border-green-400 opacity-75" />
                           <span />
                         </div>
                         <div className="flex flex-col ml-3 min-w-0">
-                          <div className="font-medium leading-none text-gray-100">
+                          <div className="font-medium leading-none text-dark-color">
                             Groupname
                           </div>
-                          <p className="text-sm text-gray-500 leading-none mt-1 truncate">
+                          <p className="text-sm text-dark-color/50 leading-none mt-1 truncate">
                             Beautiful hand-crafted SVG icons
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/*elements 2*/}
-                  <div className="flex flex-col p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
+                  {/*elements 3*/}
+                  <div className="flex flex-col p-4 bg-bg-white border-dark-color shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center mr-auto">
                         <div className="inline-flex w-12 h-12">
                           <img
                             src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
                             alt="aji"
-                            className=" relative p-1 w-12 h-12 object-cover rounded-2xl"
+                            className=" relative w-12 h-12 object-cover rounded-full"
                           />
-                          <span className="absolute w-12 h-12 inline-flex border-2 rounded-2xl border-gray-600 opacity-75" />
+                          <span className="absolute w-12 h-12 inline-flex border-2 rounded-full border-light-color opacity-75" />
                           <span />
                         </div>
                         <div className="flex flex-col ml-3 min-w-0">
-                          <div className="font-medium leading-none text-gray-100">
+                          <div className="font-medium leading-none text-dark-color">
                             Ajimon
                           </div>
-                          <p className="text-sm text-gray-500 leading-none mt-1 truncate">
+                          <p className="text-sm text-dark-color/50 leading-none mt-1 truncate">
                             Jul 066, 2021, 8.25 PM
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
+                  <div className="flex flex-col p-4 bg-bg-white border-dark-color shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center mr-auto">
                         <div className="inline-flex w-12 h-12">
                           <img
                             src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
                             alt="aji"
-                            className=" relative p-1 w-12 h-12 object-cover rounded-2xl"
+                            className=" relative w-12 h-12 object-cover rounded-full"
                           />
-                          <span className="absolute w-12 h-12 inline-flex border-2 rounded-2xl border-gray-600 opacity-75" />
+                          <span className="absolute w-12 h-12 inline-flex border-2 rounded-full border-light-color opacity-75" />
                           <span />
                         </div>
                         <div className="flex flex-col ml-3 min-w-0">
-                          <div className="font-medium leading-none text-gray-100">
+                          <div className="font-medium leading-none text-dark-color">
                             Ajimon
                           </div>
-                          <p className="text-sm text-gray-500 leading-none mt-1 truncate">
+                          <p className="text-sm text-dark-color/50 leading-none mt-1 truncate">
                             Jul 066, 2021, 8.25 PM
                           </p>
                         </div>
@@ -507,6 +514,12 @@ function Job() {
           </div>
         </div>
       </>
+      {showForm && (
+        <div className=" fixed inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 bg-light-color bg-opacity-50"></div>
+          <JobForm onRequestClose={closeForm} />
+        </div>
+      )}
     </div>
   );
 }
