@@ -68,19 +68,19 @@ function Job() {
       </div>
               <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
                 {" "}
-                <div className="flex flex-col justify-center p-4  border-gray-800 shadow-md hover:shodow-lg rounded-2xl">
+                <div className="flex flex-col justify-center p-4  border-light-color shadow-md hover:shodow-lg rounded-2xl">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <div className="flex flex-col">
-                        <div className="font-medium leading-none text-black">
+                        <div className="font-medium leading-none text-dark-color">
                           Post a free job{" "}
                         </div>
-                        <p className="text-sm text-gray-500 leading-none mt-1">
+                        <p className="text-sm text-dark-color/50 leading-none mt-1">
                           By deleting your account.
                         </p>
                       </div>
                     </div>
-                    <a className="flex-no-shrink text-xs  font-medium tracking-wider  text-gray-400 hover:text-green-400 transition ease-in duration-300">
+                    <a className="flex-no-shrink text-xs  font-medium tracking-wider  text-dark-color hover:text-dark-color/85 transition ease-in duration-300">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

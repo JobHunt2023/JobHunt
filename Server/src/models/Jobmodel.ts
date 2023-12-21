@@ -3,11 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 interface IJob extends Document {
   title: string;
   company: string;
-  
- 
-
-=======
-  workplaceType: string,
+   workplaceType: string,
   jobLocation: string
   description: string;
   requirements: string[];
