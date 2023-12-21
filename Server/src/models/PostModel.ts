@@ -2,7 +2,7 @@ import mongoose, { Document, Schema, Model, Types } from 'mongoose';
 
 interface Post extends Document {
   post_content: string;
-  post_media?: string;
+  post_media?: String;
   post_author: string;
   user_id: Types.ObjectId;
   created_at: Date;
