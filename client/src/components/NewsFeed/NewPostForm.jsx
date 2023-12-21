@@ -44,7 +44,7 @@ const NewPostForm = () => {
   };
 
   return (
-    <div className="relative flex justify-center  bg-bg-white items-center w-full mt-5 ">
+    <div className="relative flex justify-center bg-bg-white items-center w-full mt-5 ">
       <div className="w-full ">
         <div className="border border-dark-color/30 rounded-[1rem] flex p-5">
           <img
@@ -65,7 +65,78 @@ const NewPostForm = () => {
       {showForm && (
         <div className=" fixed inset-0 flex items-center justify-center">
           <div className="absolute inset-0 bg-light-color bg-opacity-50"></div>
-            <JobForm  onRequestClose={closeForm} />
+          <div className="z-10 w-full max-w-md mx-auto mt-8 p-4 bg-bg-white rounded-md shadow-lg relative">
+            <h2 className="text-2xl font-semibold mb-4 text-dark-color text-center">
+              New Post
+            </h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label
+                  htmlFor="title"
+                  className="block text-sm font-medium text-dark-color"
+                >
+                  Title
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="mt-1 p-2 w-full border rounded-md"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="description"
+                  className="block text-sm font-medium text-dark-color"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="mt-1 p-2 w-full border rounded-md"
+                  required
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="mediaFile"
+                  className="block text-sm font-medium text-dark-color"
+                >
+                  Media File (Photo or Video)
+                </label>
+                <input
+                  type="file"
+                  accept="image/*,video/*"
+                  id="mediaFile"
+                  name="mediaFile"
+                  onChange={handleFileChange}
+                  className="mt-1 w-full border rounded-md file:bg-dark-btn-color file:text-bg-white file:p-2 file:border-0 file:hover:bg-light-btn-color"
+                  required
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className="bg-dark-btn-color text-bg-white py-2 px-4 rounded-md hover:bg-light-btn-color mr-2"
+                >
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  onClick={closeForm}
+                  className="text-dark-color hover:text-dark-color cursor-pointer"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
     </div>
