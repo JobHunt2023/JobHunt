@@ -20,6 +20,7 @@ import { UseUser, UserProvider } from "./hooks/UserContext";
 import { ProfilePageOne } from "./pages/ProfilePageOne";
 import { GroupsAndCommunities } from "./pages/GroupsAndCommunities";
 import NewsFeed from "./pages/NewsFeed";
+import JobDetails from "./pages/JobDetails";
 
 
 const cookies = new Cookies();
@@ -48,6 +49,7 @@ function App() {
             <Route path="/connections" element={<Connections />} />
             <Route path="/groups" element={<GroupsAndCommunities />} />
             <Route path="/newsfeed" element={<NewsFeed />} />
+            <Route path="/jobdetails" element={<JobDetails />} />
           </Routes>
           <Footer />
         </BrowserRouter>
