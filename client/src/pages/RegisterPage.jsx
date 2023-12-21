@@ -49,7 +49,7 @@ const Register = () => {
   };
 
   return (
-    <section className="h-screen">
+    <section className="h-screen mx-44 pt-24">
       <div className="h-full">
         {/* Right column container with background */}
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-around">
@@ -58,13 +58,13 @@ const Register = () => {
             <form>
               {/* Sign up section */}
               <div className="flex flex-row items-center justify-center lg:justify-center">
-                <p className="mb-0 mr-4 text-3xl text-[#3B564D] font-bold">
+                <p className="mb-0 mr-4 text-3xl text-dark-color font-bold">
                   Create an account
                 </p>
               </div>
 
               {/* Separator */}
-              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-light-color after:mt-0.5 after:flex-1 after:border-t after:border-light-color">
                 {/* <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
                   Or
                 </p> */}
@@ -73,14 +73,14 @@ const Register = () => {
                 <input
                   type="text"
                   name="FirstName"
-                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                   placeholder="First Name"
                   onChange={(e) => setFirstName(e.target.value)}
                 />
                 <input
                   type="text"
                   name="LastName"
-                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                   placeholder="Last Name"
                   onChange={(e) => setLastName(e.target.value)}
                 />
@@ -89,7 +89,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                 placeholder="Email address"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -99,7 +99,7 @@ const Register = () => {
                 <input
                   type="password"
                   name="password"
-                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -108,7 +108,7 @@ const Register = () => {
                 <input
                   type="password"
                   name="password"
-                  className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                  className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                   placeholder="Confirm Password"
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
@@ -117,7 +117,7 @@ const Register = () => {
               <input
                 type="text"
                 name="phoneNumber"
-                className="mb-6 border border-neutral-300 rounded-md px-3 py-2 w-full"
+                className="mb-6 border border-light-color rounded-md px-3 py-2 w-full"
                 placeholder="Phone Number"
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
@@ -127,10 +127,10 @@ const Register = () => {
               )}
 
               {/* Register button */}
-              <div className="text-center lg:text-left text-[#3B564D]">
+              <div className="text-center lg:text-left text-dark-color">
                 <button
                   type="button"
-                  className="inline-block rounded bg-[#B9C5B1] hover:bg-[#a6b49c] px-7 py-2 text-sm font-medium uppercase text-white transition duration-150 ease-in-out"
+                  className="inline-block rounded bg-dark-btn-colordark-btn-color hover:bg-dark-color px-7 py-2 text-sm font-medium uppercase text-dark-btn-txt-color transition duration-150 ease-in-out"
                   onClick={handleRegister}
                 >
                   Register
@@ -141,7 +141,7 @@ const Register = () => {
                   Already have an account?{" "}
                   <Link
                     to="/LoginPage"
-                    className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                    className="underline text-dark-color transition duration-150 ease-in-out hover:text-light-color focus:text-dark-color active:text-dark-color"
                   >
                     Login
                   </Link>

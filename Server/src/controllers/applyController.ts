@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import ApplyModel from "../models/applyModel";
 import JobModel from "../models/Jobmodel";
-import UserModel from "../models/userModel";
+import UserModel from "../models/usersSchema";
 
 class applyController {
   public async createApplication(req: Request, res: Response): Promise<void> {
@@ -18,7 +18,7 @@ class applyController {
         applicant: userID,
       });
       const application = await newApplication.save();
-      res.json(application);
+      res.status(201).json({ application, message: "your apply added successfully" });
     } catch (error) {
       console.error("Error creating job:", error);
       res.status(500).json({ error: "Failed to create application." });

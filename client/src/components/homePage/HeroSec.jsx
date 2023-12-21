@@ -5,36 +5,34 @@ import { Link } from "react-router-dom";
 export const HeroSec = () => {
   return (
     <>
-      <div class="bg-white relative pt-40 pb-28 lg:pt-44 mx-16 ">
+      <div class=" relative pt-40 pb-28 lg:pt-44 mx-16 ">
         <div class="relative xl:container m-auto px-6 md:px-12 lg:px-6">
-          <h1 class="sm:mx-auto sm:w-10/12 md:w-2/3 font-[#3B564D] text-[#3B564D] text-4xl text-center sm:text-5xl md:text-6xl lg:w-auto lg:text-left xl:text-6xl dark:text-white">
+          <h1 class="sm:mx-auto sm:w-10/12 md:w-2/3 font-darktext-dark-color text-dark-color text-4xl text-center sm:text-5xl md:text-6xl lg:w-auto lg:text-left xl:text-6xl dark:text-white">
             Grow your professional network with us{" "}
           </h1>
           <div class="lg:flex">
             <div class="relative mt-8 md:mt-16 space-y-8 sm:w-10/12 md:w-2/3 lg:ml-0 sm:mx-auto text-center lg:text-left lg:mr-auto lg:w-7/12">
-              <p class="text-[#B9C5B1] sm:text-lg dark:text-gray-300 lg:w-11/12">
+              <p class="text-light-color sm:text-lg dark:text-gray-300 lg:w-11/12">
                 DailyBot takes chat and collaboration to the next level: daily
                 standups, team check-ins, surveys, kudos, best companion bot for
                 your virtual watercooler, 1:1 intros, motivation tracking and
                 more.
               </p>
-              <span class="block font-semibold text-[#3B564D] dark:text-gray-400">
+              <span class="block font-semibold text-dark-color dark:text-gray-400">
                 The best companion bot for your chat app.
               </span>
               <div class="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
-                <a
+                <Link
                   aria-label="add to slack"
-                  href="#"
-                  class="text-[#fff] hover:text-[#3B564D] p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:bg-[#fff] bg-[#3B564D] hover:shadow-lg hover:shadow-[#3B564D50] dark:hover:border-cyan-300/30"
+                  to="/RegisterPage"
+                  class="text-dark-btn-txt-color hover:text-light-btn-color p-4 border border-dark-color/50 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:bg-bg-white bg-dark-btn-color hover:shadow-lg hover:shadow-dark-color/50 dark:hover:border-cyan-300/30"
                 >
                   <div class="flex justify-center space-x-4">
-                    <Link to="/RegisterPage">
-                      <span class="w-24 text-center font-medium md:block dark:text-white">
+                      <span class="w-24 text-center font-medium md:block dark:text-bg-white">
                         SIGN UP
                       </span>
-                    </Link>
                   </div>
-                </a>
+                </Link>
               </div>
               {/* <div class="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
                         <a aria-label="add to slack" href="#" class="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
@@ -75,7 +73,7 @@ export const HeroSec = () => {
               <div class="relative w-full">
                 <div
                   aria-hidden="true"
-                  class="absolute scale-75 md:scale-110 inset-0 m-auto w-full h-full md:w-96 md:h-96 rounded-full rotate-45 bg-gradient-to-r from-[#15986a] to-[#afec87] blur-3xl"
+                  class="absolute scale-75 md:scale-110 inset-0 m-auto w-full h-full md:w-96 md:h-96 rounded-full rotate-45 bg-gradient-to-r from-hero-shadow-dark to-hero-shadow-light blur-3xl"
                 ></div>
                 <img
                   //   src="https://tailus.io/sources/blocks/tech-startup/preview/images/globalization-cuate.svg"
