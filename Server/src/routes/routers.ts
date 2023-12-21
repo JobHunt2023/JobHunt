@@ -1,5 +1,5 @@
 import express from 'express';
-import UserController from '../controllers/usersController';
+// import UserController from '../controllers/usersController';
 
 import ConnectionController from '../controllers/ConnectionController';
 import PostController from '../controllers/PostController';
@@ -9,23 +9,23 @@ import JobController from '../controllers/JobController';
 
 const router = express.Router();
 
-router.post("/registerUser", UserController.registerUser);
+// router.post("/registerUser", UserController.registerUser);
 
-router.post("/Login", UserController.loginUser);
+// router.post("/Login", UserController.loginUser);
 
-router.post('/sendEmail', UserController.sendEmail);
+// router.post('/sendEmail', UserController.sendEmail);
 
-router.post('/verificationCode', UserController.verificationCode);
+// router.post('/verificationCode', UserController.verificationCode);
 
-router.put("/updatepassword", UserController.updatepassword);
+// router.put("/updatepassword", UserController.updatepassword);
 
-router.get("/getUserData", UserController.getUserData);
+// router.get("/getUserData", UserController.getUserData);
 
-router.get('/getUserId/:id', UserController.getUserId);
+// router.get('/getUserId/:id', UserController.getUserId);
 
-router.put('/updateUserData/:id', UserController.updateUserData);
+// router.put('/updateUserData/:id', UserController.updateUserData);
 
-router.put("/deleteUser/:id", UserController.deleteUser);
+// router.put("/deleteUser/:id", UserController.deleteUser);
 
 
 // router.post('/users', UserController.createUser);
@@ -43,21 +43,21 @@ router.put("/deleteUser/:id", UserController.deleteUser);
 // router.delete('/users/:userId', UserController.deleteUser);
 // router.post("/registerUser", UserController.registerUser);
 
-router.post("/Login", UserController.loginUser);
+// router.post("/Login", UserController.loginUser);
 
-router.post('/sendEmail', UserController.sendEmail);
+// router.post('/sendEmail', UserController.sendEmail);
 
-router.post('/verificationCode', UserController.verificationCode);
+// router.post('/verificationCode', UserController.verificationCode);
 
-router.put("/updatepassword", UserController.updatepassword);
+// router.put("/updatepassword", UserController.updatepassword);
 
-router.get("/getUserData", UserController.getUserData);
+// router.get("/getUserData", UserController.getUserData);
 
-router.get('/getUserId/:id', UserController.getUserId);
+// router.get('/getUserId/:id', UserController.getUserId);
 
-router.put('/updateUserData/:id', UserController.updateUserData);
+// router.put('/updateUserData/:id', UserController.updateUserData);
 
-router.put("/deleteUser/:id", UserController.deleteUser);
+// router.put("/deleteUser/:id", UserController.deleteUser);
 
 
 
