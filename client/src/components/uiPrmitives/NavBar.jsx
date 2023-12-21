@@ -64,7 +64,7 @@ export const NavBar = () => {
             <li className="lg:mr-12">
               <Link
                 className="rounded text-nav-txt-color transition focus:outline-none focus:ring-1 focus:ring-nav-txt-color focus:ring-offset-4"
-                to="#"
+                to="/newsfeed"
               >
                 Feed Page
               </Link>

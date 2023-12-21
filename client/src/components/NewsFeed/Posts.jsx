@@ -7,7 +7,7 @@ function Posts() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/posts")
+      .get("http://localhost:8000/posts")
       .then((response) => {
         setPosts(response.data);
       })
@@ -39,19 +39,19 @@ function Posts() {
       {posts.map((post, index) => (
         <div
           key={index}
-          class="border  w-full text-card-foreground max-w-xl mx-auto mt-1 p-4 bg-white shadow-md rounded-md"
+          class="border w-full text-card-foreground  mx-auto mt-1 p-4 bg-bg-white shadow-md rounded-[1rem]"
           data-v0-t="card"
         >
           <div class="flex items-center justify-between">
             <div class="flex items-center">
               <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full mr-4">
-                <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">
+                <span class="text-dark-color flex h-full w-full items-center justify-center rounded-full bg-muted">
                   UN
                 </span>
               </span>
               <div>
                 <h4 class="font-bold">{post.username}</h4>
-                <p class="text-sm text-gray-500">{post.date}</p>
+                <p class="text-sm text-light-color">{post.date}</p>
               </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -66,7 +66,7 @@ function Posts() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="h-4 w-4"
+                  class="h-4 w-4 text-dark-btn-color"
                 >
                   <circle cx="12" cy="12" r="1"></circle>
                   <circle cx="19" cy="12" r="1"></circle>
@@ -84,7 +84,7 @@ function Posts() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="h-4 w-4"
+                  class="h-4 w-4 text-dark-btn-color"
                 >
                   <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
                   <line x1="4" x2="4" y1="22" y2="15"></line>
@@ -103,11 +103,11 @@ function Posts() {
             />
           )}
 
-          <div class="flex items-center justify-between mt-4">
+          <div class="gap-4 flex items-center justify-between mt-4">
             <div class="flex items-center space-x-2">
               <button
                 onClick={() => handleLike(post.id)}
-                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+                class="text-dark-color inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@ function Posts() {
                   stroke-width="1.5"
                   stroke="currentColor"
                   data-slot="icon"
-                  class="w-6 h-6 ml-2"
+                  class="w-6 h-6 ml-2 text-dark-btn-color"
                 >
                   <path
                     stroke-linecap="round"
@@ -126,7 +126,7 @@ function Posts() {
                 </svg>
                 Likes
               </button>
-              <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              <button class="text-dark-color inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -134,7 +134,7 @@ function Posts() {
                   stroke-width="1.5"
                   stroke="currentColor"
                   data-slot="icon"
-                  class="w-6 h-6 ml-2"
+                  class="w-6 h-6 ml-2 text-dark-btn-color"
                 >
                   <path
                     stroke-linecap="round"
@@ -145,7 +145,7 @@ function Posts() {
                 Comments
               </button>
             </div>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            <button class="text-dark-color inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -156,7 +156,7 @@ function Posts() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="h-4 w-4 ml-2"
+                class="h-4 w-4 ml-2 text-dark-btn-color"
               >
                 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
                 <polyline points="16 6 12 2 8 6"></polyline>

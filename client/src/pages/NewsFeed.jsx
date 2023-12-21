@@ -6,8 +6,8 @@ import { SideMenu } from "../components/NewsFeed/SideMenu";
 function NewsFeed() {
   return (
     <>
-      <div className="flex flex-row justify-center">
-        <div className="flex flex-col">
+      <div className="flex flex-row justify-center pt-44">
+        <div className="flex flex-col w-1/2 ">
           <NewPostForm />
           <Posts />
         </div>

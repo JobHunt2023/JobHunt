@@ -101,9 +101,9 @@ export const SideMenu = () => {
   }, [sidebarTop]);
 
   return (
-    <div className="p-3 w-[30rem]">
-      <div className="p-3 ">
-        <div className={`border border-gray-300 rounded p-4 mb-4`}>
+    <div className="p-3 w-1/3 ">
+      <div className="p-3  ">
+        <div className={`border bg-bg-white shadow-md border-gray-300  rounded-[1rem] p-4 mb-4`}>
           <h3 className="text-dark-green">Most Recent Jobs</h3>
           <hr />
           <br />
@@ -130,7 +130,7 @@ export const SideMenu = () => {
           </div>
         </div>
         <div
-          className={`w-[27rem] sidebar ${sticky} border border-gray-300 rounded p-4`}
+          className={` border bg-bg-white rounded-[1rem] border-light-color shadow-md p-4`}
         >
           <h3 className="text-dark-green">Most Recent Jobs</h3>
           <hr />

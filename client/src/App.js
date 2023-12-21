@@ -19,12 +19,12 @@ import axios from 'axios';
 import { UseUser, UserProvider } from "./hooks/UserContext";
 import { ProfilePageOne } from "./pages/ProfilePageOne";
 import { GroupsAndCommunities } from "./pages/GroupsAndCommunities";
+import NewsFeed from "./pages/NewsFeed";
 
 
 const cookies = new Cookies();
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${cookies.get('token')}`;
-import NewsFeed from "./pages/NewsFeed";
 
 function App() {
   // const { user } = UseUser();
@@ -47,6 +47,7 @@ function App() {
             <Route path="/profilepage" element={<ProfilePageOne /> } />
             <Route path="/connections" element={<Connections />} />
             <Route path="/groups" element={<GroupsAndCommunities />} />
+            <Route path="/newsfeed" element={<NewsFeed />} />
           </Routes>
           <Footer />
         </BrowserRouter>
