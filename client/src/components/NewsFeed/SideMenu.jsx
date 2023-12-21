@@ -160,7 +160,7 @@ export const SideMenu = () => {
           <br />
           <div className="p-3 ">
             {groups.map((group, id) => (
-              <Link to="/" key={id}>
+              <Link to="/groupDetails" key={id}>
                 <div className="flex justify-start items-start p-3">
                 <img
                     src={group.groupImageUrl}
@@ -185,7 +185,7 @@ export const SideMenu = () => {
           <br />
           <div className="p-3">
             {jobs.map((job, id) => (
-              <Link to="/" key={id}>
+              <Link to="/jobDetails" key={id}>
                 <div className="flex justify-start items-start p-3">
                   <img
                     src="https://cdn2.iconfinder.com/data/icons/mixed-rounded-flat-icon/512/briefcase-512.png"
